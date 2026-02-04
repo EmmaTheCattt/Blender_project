@@ -287,51 +287,54 @@ public class Player_movement : MonoBehaviour
 
     void Player_Attack(bool Cam_on_player)
     {
-        if (swing && !Shift)
+        if (Cam_on_player == true) 
         {
-            Animation_change(CHARGE);
-            New_speed = charge_speed;
-
-            if (!grounded)
+            if (swing && !Shift)
             {
-                New_speed = Speed;
+                Animation_change(CHARGE);
+                New_speed = charge_speed;
+
+                if (!grounded)
+                {
+                    New_speed = Speed;
+                }
             }
-        }
 
-        if (charged_swing)
-        {
-            Animation_change(SWING);
-            swing_recharge = 0f;
-            New_speed = Speed;
-            charged_swing = false;
-
-            if (!dashed)
+            if (charged_swing)
             {
-                Dashing_time = 0;
-                dashing = true;
+                Animation_change(SWING);
+                swing_recharge = 0f;
+                New_speed = Speed;
+                charged_swing = false;
 
-                Dash_direction = Cam.transform.forward;
-                Dash_direction = Dash_direction.normalized;
+                if (!dashed)
+                {
+                    Dashing_time = 0;
+                    dashing = true;
+
+                    Dash_direction = Cam.transform.forward;
+                    Dash_direction = Dash_direction.normalized;
+
+                    Movement = Dash_direction * DASH_SPEED;
+                    Dash = Movement;
+                    CHECK_WALLS();
+                }
+            }
+
+            if (dashing)
+            {
+                Dashing_time += Time.fixedDeltaTime;
+
+                if (Dashing_time > Dash_duration)
+                {
+                    dashing = false;
+                    dashed = true;
+                }
 
                 Movement = Dash_direction * DASH_SPEED;
                 Dash = Movement;
                 CHECK_WALLS();
             }
-        }
-
-        if (dashing)
-        {
-            Dashing_time += Time.fixedDeltaTime;
-
-            if (Dashing_time > Dash_duration)
-            {
-                dashing = false;
-                dashed = true;
-            }
-
-            Movement = Dash_direction * DASH_SPEED;
-            Dash = Movement;
-            CHECK_WALLS();
         }
     }
 

@@ -96,7 +96,7 @@ public abstract class MONSTER : SPAWNABLE
         if (CANVAS != null && distance < distance_rend)
         {
             CANVAS.enabled = true;
-            look_vec = new Vector3(CAM.transform.position.x, CAM.transform.position.y - 1, CAM.transform.position.z);
+            look_vec = new Vector3(CAM.transform.position.x, this.transform.position.y, CAM.transform.position.z);
             CANVAS.transform.LookAt(look_vec);
         }
         else
