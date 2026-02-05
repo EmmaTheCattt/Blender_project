@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2394533
 Transform:
   m_ObjectHideFlags: 0
@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 104704437}
   m_Layer: 0
   m_Name: GAMEMANAGER
-  m_TagString: Untagged
+  m_TagString: GM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -530,6 +530,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24f2c77ebec7a04b8bdffb57c870e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  Cam: {fileID: 0}
+  Time: 0
+  day: 1
+  night: 0
+  Day_col: {r: 0, g: 0.9490196, b: 1, a: 0}
+  Night_col: {r: 0, g: 0, b: 0, a: 0}
+  seconds_in_a_day: 300
 --- !u!1 &142160465
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +853,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0.9489832, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.9490199, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -992,6 +999,7 @@ GameObject:
   - component: {fileID: 410087041}
   - component: {fileID: 410087040}
   - component: {fileID: 410087042}
+  - component: {fileID: 410087043}
   m_Layer: 0
   m_Name: RealTime
   m_TagString: Untagged
@@ -1010,7 +1018,7 @@ Light:
   serializedVersion: 12
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1047,7 +1055,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1921
+    m_Bits: 1985
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -1108,6 +1116,20 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!114 &410087043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410087039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bf0ca6aa4f468a4e877a39899d5fe2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  lighting: {fileID: 0}
+  GM: {fileID: 0}
 --- !u!1 &414029194
 GameObject:
   m_ObjectHideFlags: 0
